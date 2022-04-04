@@ -7,7 +7,7 @@ public class Shooting : MonoBehaviour
     // Start is called before the first frame update
 
     public Transform firePoint;
-    public GameObject bulletPrefab;
+    public GameObject projectilePrefab;
     public Camera cam;
 
     public GameObject muzzleFlashePrefab;
@@ -49,7 +49,7 @@ public class Shooting : MonoBehaviour
         Quaternion fireRotation = firePoint.rotation * Quaternion.Euler(0, 0, 90);
         // Because the Bullet asset is laying sideways I had to rotate the bullet 90%
 
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, fireRotation);
+        GameObject bullet = Instantiate(projectilePrefab, firePoint.position, fireRotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
     }
